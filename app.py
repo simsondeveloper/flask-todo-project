@@ -71,5 +71,28 @@ def submit_todo_item():
     }), 201
 
 
+@app.route("/submittodoitem", methods=["POST"])
+def submit_todo_item():
+
+    item_name = request.form.get("itemName")
+    item_description = request.form.get("itemDescription")
+
+    if not item_name or not item_description:
+        return jsonify({
+            "message": "Both fields are required"
+        }), 400
+
+    todo = {
+        "itemName": item_name,
+        "itemDescription": item_description
+    }
+
+    todo_collection.insert_one(todo)
+
+    return jsonify({
+        "message": "To-Do item saved successfully"
+    }), 201
+
+
 if __name__ == "__main__":
     app.run(debug=True)
