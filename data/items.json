@@ -3,12 +3,17 @@
         {
             "id": 1,
             "name": "Learn Flask",
-            "description": "Understand Flask basics"
+            "description": "Build Flask applications"
         },
         {
             "id": 2,
+            "name": "Learn MongoDB",
+            "description": "Practice MongoDB database operations"
+        },
+        {
+            "id": 3,
             "name": "Learn Git",
-            "description": "Practice Git branching and merging"
+            "description": "Practice advanced Git commands"
         }
     ]
 }
