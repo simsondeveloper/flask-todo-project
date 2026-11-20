@@ -1,49 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<form action="/submittodoitem" method="POST">
+    <div class="mb-3">
+    <label>Item ID</label>
+    <input type="text" name="itemId" class="form-control">
+</div>
+<div class="mb-3">
+    <label>Item UUID</label>
+    <input type="text" name="itemUUID" class="form-control">
+</div>
+<div class="mb-3">
+    <label>Item Hash</label>
+    <input type="text" name="itemHash" class="form-control">
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask To-Do Application</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+    <label>Item Name</label>
+    <input type="text" name="itemName" required>
 
-<body>
+    <label>Item Description</label>
+    <textarea name="itemDescription" required></textarea>
 
-    <div class="container mt-5">
-        <h2 class="mb-4">My To-Do Application</h2>
+    <button type="submit">Submit Item</button>
 
-        <form action="/submittodoitem" method="POST" class="card p-4">
-
-            <div class="mb-3">
-                <label class="form-label">Item Name</label>
-                <input type="text" name="itemName" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Item Description</label>
-                <textarea name="itemDescription" class="form-control" required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">
-                Add To-Do Item
-            </button>
-
-        </form>
-
-        <h4 class="mt-5">Saved Items</h4>
-
-        {% for todo in todos %}
-        <div class="card p-3 mt-3">
-            <h5>{{ todo.itemName }}</h5>
-            <p>{{ todo.itemDescription }}</p>
-        </div>
-        {% else %}
-        <p>No To-Do items available.</p>
-        {% endfor %}
-    </div>
-
-</body>
-
-</html>
+</form>
